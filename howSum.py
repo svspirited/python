@@ -1,5 +1,7 @@
 
-def  howSum(m, n, possible=[]):
+import argparse
+
+def howSum(m, n, possible=[]):
     if m == 0:
         return []
     if m < 0:
@@ -16,14 +18,21 @@ def  howSum(m, n, possible=[]):
     return None
     
 def main():
-    m = 1024
-    n = [50, 40, 13, 26, 4, 3, 12, 8]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--number", type=int)
+    parser.add_argument("--numbers", type=int, nargs='+')
+
+    args = parser.parse_args()
+
+    m = args.number
+    n = args.numbers
 
     sums = howSum(m, n)
 
-    print("sum of {} = {}".format(sums, sum(sums)))
-    
-    pass
+    if sums:
+        print("sum of {} = {}".format(sums, sum(sums)))
+    else:
+        print("No combination in {} adds to {}".format(n,m))
 
 if __name__ == "__main__":
     main()
