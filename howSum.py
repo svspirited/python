@@ -1,7 +1,9 @@
 
 import argparse
 
-def howSum(m, n, possible=[]):
+def howSum(m, n, memo={}, possible=[]):
+    if m in memo:
+        return memo[m]
     if m == 0:
         return []
     if m < 0:
@@ -9,12 +11,15 @@ def howSum(m, n, possible=[]):
     
     for num in n:
         remainder = m - num
-        remainderResult = howSum(remainder, n, possible)
-
+        memo[m] = possible
+        remainderResult = howSum(remainder, n, memo, possible)
+        
         if remainderResult != None:
             possible.append(num)
+            memo[m] = possible
             return possible
 
+    memo[m] = None
     return None
     
 def main():
