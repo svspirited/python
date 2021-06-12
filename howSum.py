@@ -1,4 +1,7 @@
-
+#
+# Recursively work through the array of numbers n to find which combination
+# adds up to the number m. Memoize the results to ensure O(m) complexity
+#
 import argparse
 
 def howSum(m, n, memo={}, possible=[]):
