@@ -6,9 +6,10 @@ import argparse
 # using available segments, any segment can be used multiple
 # times to acheive this and return the boolean result
 #
-def canBuild(target, stringBank, results=[]):
-    if target in results:
-        return True
+
+def canBuild(target, stringBank, results=[], memo={}):
+    if target in memo:
+        return memo[target]
     if target == '':
         return True
     
@@ -16,10 +17,12 @@ def canBuild(target, stringBank, results=[]):
         if word in target:
             if target.index(word) == 0:
                 suffix = target[len(word):]
-                if canBuild(suffix, stringBank):
+                if canBuild(suffix, stringBank, results, memo):
+                    memo[target] = True
                     results.append(word)
                     return True
-                
+
+    memo[target] = False
     return False
 
 def main():
