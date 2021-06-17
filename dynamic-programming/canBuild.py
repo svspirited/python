@@ -20,7 +20,7 @@ def canBuild(target, stringBank, results=[]):
                     results.append(word)
                     return True
                 
-    return True
+    return False
 
 def main():
     parser = argparse.ArgumentParser()
