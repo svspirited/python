@@ -37,10 +37,10 @@ def main():
     n = args.words
 
     result = countBuild(m,n)
-    if result == []:
-        print("{} can not be built with any combination in {}".format(m,n))
+    if result:
+        print("{} can be built {} ways".format(m,result))
     else:
-        print(result)
+        print("{} can not be built with any combination in {}".format(m,n))
     
 if __name__ == "__main__":
     main()
