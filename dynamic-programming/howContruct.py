@@ -19,10 +19,11 @@ def howConstruct(target, stringBank):
                 suffix = target[len(word):]
                 suffixWays = howConstruct(suffix, stringBank)
                 targetResults = list(deepflatten([word, suffixWays], ignore=str))
-                result.append(targetResults)
-                
-    if len(list(deepflatten(result))) < len(target):
-        result = []
+                if len(list(deepflatten(targetResults))) < len(target):
+                    pass
+                else:
+                    result.append(targetResults)
+
     return result
 
 def main():
