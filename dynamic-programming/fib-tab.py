@@ -1,3 +1,5 @@
+import argparse
+
 def fib(num):
     nums = []
     for n in range(0, num+1):
@@ -16,7 +18,14 @@ def fib(num):
 
 
 def main():
-    num = fib(50)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--num", type=int)
+
+    args = parser.parse_args()
+
+    num = args.num
+    
+    num = fib(num)
     print(num)
 
 if __name__ == "__main__":
