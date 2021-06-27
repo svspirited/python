@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import argparse
-
 #
 # Recursively cycle through a list of string fragments
 # to determine if the target string can be constructed
@@ -9,7 +8,6 @@ import argparse
 # times to acheive this and return the boolean result count
 # how many times this can be done
 #
-
 def countBuild(target, stringBank, results=[], memo={}):
     if target in memo:
         return memo[target]
