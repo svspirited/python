@@ -18,7 +18,6 @@ def howBuild(target, stringBank, results=[]):
             if target.index(word) == 0:
                 suffix = target[len(word):]
                 if howBuild(suffix, stringBank):
-                    results.append(word)
                 
     return results
 
